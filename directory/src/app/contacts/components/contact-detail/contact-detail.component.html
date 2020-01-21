@@ -1,0 +1,15 @@
+<div *ngIf="(contacts$ | async) as contact">
+  <div>
+    <img [src]="contact.id" alt="">
+  </div>
+  <div>
+    <ul>
+      <li>Nombre: {{ contact.first_name }}</li>
+      <li>Apellido: {{ contact.last_name }}</li>
+    </ul>
+    <p>{{ contact.nickname }}</p>
+  </div>
+  <button (click)="createContact()">crear</button>
+  <button (click)="updateContact()">update</button>
+</div>
+
