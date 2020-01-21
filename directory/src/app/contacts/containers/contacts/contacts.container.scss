@@ -7,3 +7,25 @@ a {
   vertical-align: middle;
   padding: 10px;
 }
+
+#contactAlert{
+  opacity: 0;
+  display: inline;
+  margin: 5px;
+}
+.fade-out {
+  opacity: 0;
+	animation-name: fadeOutOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 5s;
+}
+
+@keyframes fadeOutOpacity {
+	0% {
+    opacity: 1;
+	}
+	100% {
+    opacity: 0;
+	}
+}

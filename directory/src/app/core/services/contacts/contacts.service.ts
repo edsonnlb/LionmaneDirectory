@@ -23,7 +23,7 @@ export class ContactService {
     return this.http.get<Contact>(`${environment.api_url}/contacts/${id}`);
   }
 
-  createContact(contact: Contact) {
+  createContact(contact: Partial<Contact>) {
     return this.http.post(`${environment.api_url}/contacts`, contact);
   }
 
@@ -31,7 +31,7 @@ export class ContactService {
     return this.http.put(`${environment.api_url}/contacts/${id}`, changes);
   }
 
-  deleteContact(id: string) {
+  deleteContact(id: number) {
     return this.http.delete(`${environment.api_url}/contacts/${id}`);
   }
 }

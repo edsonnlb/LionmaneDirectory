@@ -2,6 +2,9 @@
   <input class="form-control" type="text" placeholder="Search..." width="300" [(ngModel)]='searchText' (keyup.enter)="searchContacts()" />
   &nbsp;<button type="submit" class="btn btn-primary mb-2" (click)="searchContacts()">Search</button>
 </div>
+<div class="alert alert-info" id="contactAlert" role="alert">
+  {{actionMessage}}
+</div>
 <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
@@ -15,7 +18,8 @@
   <tbody>
     <tr app-contact
       *ngFor="let contact of contacts"
-      [contact]="contact">
+      [contact]="contact"
+      (contactDeleted)="contactDeletedAction()">
     </tr>
   </tbody>
 </table>

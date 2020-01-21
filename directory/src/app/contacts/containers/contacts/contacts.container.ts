@@ -20,6 +20,8 @@ export class ContactsContainer implements OnInit {
   sortDir = 'ASC';
   pageCount = 1;
 
+  actionMessage = '';
+
   constructor(
     private contactsService: ContactService
   ) { }
@@ -56,6 +58,18 @@ export class ContactsContainer implements OnInit {
       this.sortDir = 'DESC';
     }
     this.fetchContacts();
+  }
+
+  contactDeletedAction() {
+    this.fetchContacts();
+    this.actionMessage = 'Contact deleted!';
+    const contactAlert = document.getElementById('contactAlert');
+    if (contactAlert != null) {
+      contactAlert.className += ' fade-out';
+      setTimeout(() => {
+        contactAlert.className = contactAlert.className.replace(' fade-out', '');
+      }, 5000);
+    }
   }
 
 }
