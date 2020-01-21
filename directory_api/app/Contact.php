@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contact extends Model
 {
+    protected $primaryKey = 'contact_id';
+
     /**
      * The attributes that are mass assignable.
      *

@@ -4,7 +4,7 @@
   <td>{{ contact.last_name }}</td>
   <td>{{ contact.nickname }}</td>
   <td class="action-btns">
-    <button type="button" class="btn btn-outline-success"><span class="material-icons">contact_phone</span></button>&nbsp;
-    <button type="button" class="btn btn-outline-primary"><span class="material-icons">edit</span></button>&nbsp;
-    <button type="button" class="btn btn-outline-danger"><span class="material-icons">delete_forever</span></button>
+    <button type="button" class="btn btn-outline-success" data-toggle="tooltip" data-placement="top" title="Details" [routerLink]="[contact.contact_id]"><span class="material-icons">contact_phone</span></button>&nbsp;
+    <button type="button" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="top" title="Edit"><span class="material-icons">edit</span></button>&nbsp;
+    <button type="button" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Delete"><span class="material-icons">delete_forever</span></button>
   </td>

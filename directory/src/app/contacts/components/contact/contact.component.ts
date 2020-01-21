@@ -30,9 +30,4 @@ export class ContactComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
   }
 
-  showContactDetail() {
-    console.log('show detail');
-
-  }
-
 }

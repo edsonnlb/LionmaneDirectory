@@ -5,17 +5,16 @@
 <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Nickname</th>
+      <th scope="col"><a (click)="setSort('contact_id')">#</a></th>
+      <th scope="col"><a (click)="setSort('first_name')">First Name</a></th>
+      <th scope="col"><a (click)="setSort('last_name')">Last Name</a></th>
+      <th scope="col"><a (click)="setSort('nickname')">Nickname</a></th>
       <th scope="col">&nbsp;</th>
     </tr>
   </thead>
   <tbody>
     <tr app-contact
       *ngFor="let contact of contacts"
-      (contactClicked)="clickContact($event)"
       [contact]="contact">
     </tr>
   </tbody>

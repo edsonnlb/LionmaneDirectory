@@ -28,11 +28,6 @@ export class ContactsContainer implements OnInit {
     this.fetchContacts();
   }
 
-  clickContact(id: number) {
-    console.log('contact');
-    console.log(id);
-  }
-
   fetchContacts() {
     this.contactsService.getAllContacts(this.searchText, this.currentPage, this.pageSize, this.sortField, this.sortDir)
     .subscribe(contacts => {
@@ -50,6 +45,16 @@ export class ContactsContainer implements OnInit {
 
   searchContacts() {
     this.currentPage = 1;
+    this.fetchContacts();
+  }
+
+  setSort(sortField: string) {
+    this.sortField = sortField;
+    if (this.sortDir === 'DESC') {
+      this.sortDir = 'ASC';
+    } else {
+      this.sortDir = 'DESC';
+    }
     this.fetchContacts();
   }
 

@@ -16,7 +16,7 @@ export class ContactService {
 
   getAllContacts(needle: string, page: number, pageSize: number, sort: string, sortDir: string) {
     // tslint:disable-next-line: max-line-length
-    return this.http.get(`${environment.api_url}/contacts?search=${needle}&page=${page}&pageSize=${pageSize}&sort=${sort}&sortDir=${sortDir}`);
+    return this.http.get(`${environment.api_url}/contacts?search=${needle}&page=${page}&pageSize=${pageSize}&sortBy=${sort}&sortDir=${sortDir}`);
   }
 
   getContact(id: string) {

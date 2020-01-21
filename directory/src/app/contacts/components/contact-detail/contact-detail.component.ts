@@ -14,7 +14,7 @@ import { Contact } from '../../../core/models/contact.model';
 })
 export class ContactDetailComponent implements OnInit {
 
-  contacts$: Observable<Contact>;
+  contact$: Observable<Contact>;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,7 +22,7 @@ export class ContactDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.contacts$ = this.route.params
+    this.contact$ = this.route.params
     .pipe(
       switchMap((params: Params) => {
         return this.contactsService.getContact(params.id);
