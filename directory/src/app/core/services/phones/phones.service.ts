@@ -26,7 +26,8 @@ export class PhoneService {
     return this.http.get<Phone>(`${environment.api_url}/phones/${id}`);
   }
 
-  createPhone(phone: Phone) {
+  createPhone(phone: Partial<Phone>) {
+    console.log(phone);
     return this.http.post(`${environment.api_url}/phones`, phone);
   }
 
@@ -35,6 +36,7 @@ export class PhoneService {
   }
 
   deletePhone(id: number) {
+    console.log(`${environment.api_url}/phones/${id}`);
     return this.http.delete(`${environment.api_url}/phones/${id}`);
   }
 }

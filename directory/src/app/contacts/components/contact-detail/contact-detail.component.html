@@ -12,7 +12,7 @@
         <app-phones [contactId]="contact.contact_id"></app-phones>
         <p class="card-text"><small class="text-muted">Created at {{contact.created_at | date:'MMM d, y'}}</small></p>
         <p class="card-text"><small class="text-muted">Last updated {{contact.updated_at | date:'MMM d, y'}}</small></p>
-        <a href="#" class="btn btn-primary">Edit</a>
+        <a href="#" class="btn btn-primary" [routerLink]="['/contacts/form', contact.contact_id]">Edit</a>
       </div>
     </div>
   </div>

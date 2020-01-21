@@ -30,23 +30,4 @@ export class ContactDetailComponent implements OnInit {
     );
   }
 
-  createContact() {
-    /*const newContact: Contact = { };
-    this.contactsService.createContact(newContact)
-    .subscribe(contact => {
-      console.log(contact);
-    });*/
-  }
-
-  updateContact() {
-    /*const updateProduct: Partial<Product> = {
-      price: 555555,
-      description: 'edicion titulo'
-    };
-    this.productsService.updateProduct('2', updateProduct)
-    .subscribe(product => {
-      console.log(product);
-    });*/
-  }
-
 }
