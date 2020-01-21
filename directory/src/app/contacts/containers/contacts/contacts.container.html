@@ -1,8 +1,9 @@
+<div class="col-4 search-box">
+  <input class="form-control" type="text" placeholder="Search..." width="300" [(ngModel)]='searchText' (keyup.enter)="searchContacts()" />
+  &nbsp;<button type="submit" class="btn btn-primary mb-2" (click)="searchContacts()">Search</button>
+</div>
 <table class="table table-striped">
   <thead class="thead-dark">
-    <tr>
-      <th colspan="5" scope="col"><input type="text" placeholder="Search..." /></th>
-    </tr>
     <tr>
       <th scope="col">#</th>
       <th scope="col">First Name</th>

@@ -37,8 +37,6 @@ export class ContactsContainer implements OnInit {
     this.contactsService.getAllContacts(this.searchText, this.currentPage, this.pageSize, this.sortField, this.sortDir)
     .subscribe(contacts => {
       // tslint:disable-next-line: no-string-literal
-      this.currentPage = contacts['current_page'];
-      // tslint:disable-next-line: no-string-literal
       this.pageCount = contacts['last_page'];
       // tslint:disable-next-line: no-string-literal
       this.contacts = contacts['data'];
@@ -47,6 +45,11 @@ export class ContactsContainer implements OnInit {
 
   setCurrentPage(newPage: number) {
     this.currentPage = newPage;
+    this.fetchContacts();
+  }
+
+  searchContacts() {
+    this.currentPage = 1;
     this.fetchContacts();
   }
 
