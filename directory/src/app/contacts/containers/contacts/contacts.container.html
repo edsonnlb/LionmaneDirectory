@@ -1,6 +1,9 @@
 <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
+      <th colspan="5" scope="col"><input type="text" placeholder="Search..." /></th>
+    </tr>
+    <tr>
       <th scope="col">#</th>
       <th scope="col">First Name</th>
       <th scope="col">Last Name</th>
@@ -16,12 +19,14 @@
     </tr>
   </tbody>
 </table>
-<nav aria-label="Page navigation example">
+<nav class="pagination_nav">
   <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    <li [ngClass]="{'disabled' : currentPage < 2}" class="page-item"><a class="page-link" (click)="setCurrentPage(currentPage - 1)">Previous</a></li>
+    <li *ngIf="(currentPage - 2) > 0" class="page-item"><a class="page-link" (click)="setCurrentPage(currentPage - 2)">{{(currentPage - 2)}}</a></li>
+    <li *ngIf="(currentPage - 1) > 0" class="page-item"><a class="page-link" (click)="setCurrentPage(currentPage - 1)">{{(currentPage - 1)}}</a></li>
+    <li class="page-item active"><span  class="page-link">{{currentPage}}</span></li>
+    <li *ngIf="(currentPage + 1) <= pageCount" class="page-item"><a class="page-link" (click)="setCurrentPage(currentPage + 1)">{{(currentPage + 1)}}</a></li>
+    <li *ngIf="(currentPage + 2) <= pageCount" class="page-item"><a class="page-link" (click)="setCurrentPage(currentPage + 2)">{{(currentPage + 2)}}</a></li>
+    <li [ngClass]="{'disabled' : currentPage >= pageCount}" class="page-item" class="page-item"><a class="page-link" (click)="setCurrentPage(currentPage + 1)">Next</a></li>
   </ul>
 </nav>

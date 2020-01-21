@@ -39,8 +39,15 @@ export class ContactsContainer implements OnInit {
       // tslint:disable-next-line: no-string-literal
       this.currentPage = contacts['current_page'];
       // tslint:disable-next-line: no-string-literal
+      this.pageCount = contacts['last_page'];
+      // tslint:disable-next-line: no-string-literal
       this.contacts = contacts['data'];
     });
+  }
+
+  setCurrentPage(newPage: number) {
+    this.currentPage = newPage;
+    this.fetchContacts();
   }
 
 }
