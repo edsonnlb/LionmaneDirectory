@@ -19,7 +19,7 @@ export class ContactService {
     return this.http.get(`${environment.api_url}/contacts?search=${needle}&page=${page}&pageSize=${pageSize}&sortBy=${sort}&sortDir=${sortDir}`);
   }
 
-  getContact(id: string) {
+  getContact(id: number) {
     return this.http.get<Contact>(`${environment.api_url}/contacts/${id}`);
   }
 
@@ -27,7 +27,7 @@ export class ContactService {
     return this.http.post(`${environment.api_url}/contacts`, contact);
   }
 
-  updateContact(id: string, changes: Partial<Contact>) {
+  updateContact(id: number, changes: Partial<Contact>) {
     return this.http.put(`${environment.api_url}/contacts/${id}`, changes);
   }
 
