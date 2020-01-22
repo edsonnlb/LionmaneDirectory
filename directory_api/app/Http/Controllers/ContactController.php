@@ -68,4 +68,14 @@ class ContactController extends Controller
 
         return response()->json(null, 204);
     }
+
+    public function getAvatar(Contact $contact) {
+        if ($contact != null && $contact['contact_id'] > 0) {
+            if (file_exists(public_path() . '/avatars/' . $contact['contact_id'] . '.jpg')) {
+                return response()->json(url('/') . '/avatars/' . $contact['contact_id'] . '.jpg', 200);
+            }
+
+            return response()->json(url('/') . '/avatars/default.png', 200);
+        }
+    }
 }

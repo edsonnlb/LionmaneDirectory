@@ -21,18 +21,20 @@ export class ContactComponent implements OnInit {
   @Input() contact: Contact;
   @Output() contactDeleted: EventEmitter<any> = new EventEmitter();
 
-  today = new Date();
+  avatarUrl = '';
 
   constructor(
-    private contactService: ContactService
+    private contactsService: ContactService
   ) { }
 
   ngOnInit() {
+    this.contactsService.getAvatar(this.contact.contact_id)
+      .subscribe(url => { this.avatarUrl = url.toString(); });
   }
 
   deleteContact() {
     if (confirm('¿Delete ' + this.contact.first_name + ' ' + this.contact.last_name + '?')) {
-      this.contactService.deleteContact(this.contact.contact_id).subscribe(() => {
+      this.contactsService.deleteContact(this.contact.contact_id).subscribe(() => {
         this.contactDeleted.emit(this.contact);
       });
     }

@@ -34,4 +34,8 @@ export class ContactService {
   deleteContact(id: number) {
     return this.http.delete(`${environment.api_url}/contacts/${id}`);
   }
+
+  getAvatar(id: number) {
+    return this.http.get(`${environment.api_url}/contacts/avatar/${id}`);
+  }
 }

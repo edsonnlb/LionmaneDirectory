@@ -18,7 +18,9 @@ use App\Contact;
 // Contacts routing
 Route::get('contacts', 'ContactController@index');
 Route::get('contacts/{contact}', 'ContactController@show');
+Route::get('contacts/avatar/{contact}', 'ContactController@getAvatar');
 Route::post('contacts', 'ContactController@store');
+Route::post('contacts/avatar/{contact}', 'ContactController@uploadAvatar');
 Route::put('contacts/{contact}', 'ContactController@update');
 Route::delete('contacts/{contact}', 'ContactController@delete');
 

@@ -21,10 +21,14 @@ export class ContactDetailComponent implements OnInit {
     private contactsService: ContactService
   ) { }
 
+  avatarUrl = '';
+
   ngOnInit() {
     this.contact$ = this.route.params
     .pipe(
       switchMap((params: Params) => {
+        this.contactsService.getAvatar(params.id)
+              .subscribe(url => { this.avatarUrl = url.toString(); });
         return this.contactsService.getContact(params.id);
       })
     );
