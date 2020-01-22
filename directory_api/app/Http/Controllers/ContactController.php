@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 use App\Contact;
 
@@ -69,13 +70,26 @@ class ContactController extends Controller
         return response()->json(null, 204);
     }
 
+    public function uploadAvatar(Request $request, Contact $contact) {
+        if ($contact != null && $contact['contact_id'] > 0 && $request->hasFile('avatar')) {
+            if (Storage::disk('public')->exists('avatars/' . $contact['contact_id'] . '.jpg')) {
+                Storage::delete('avatars/' . $contact['contact_id'] . '.jpg');
+            }
+            $path = $request->avatar->storeAs('avatars', $contact['contact_id'] . '.jpg', 'public');
+
+            return $this->getAvatar($contact);
+        }
+
+        return response()->json(null, 204);
+    }
+
     public function getAvatar(Contact $contact) {
         if ($contact != null && $contact['contact_id'] > 0) {
-            if (file_exists(public_path() . '/avatars/' . $contact['contact_id'] . '.jpg')) {
-                return response()->json(url('/') . '/avatars/' . $contact['contact_id'] . '.jpg', 200);
+            if (Storage::disk('public')->exists('avatars/' . $contact['contact_id'] . '.jpg')) {
+                return response()->json(asset('storage/avatars/' . $contact['contact_id'] . '.jpg'), 200);
             }
 
-            return response()->json(url('/') . '/avatars/default.png', 200);
+            return response()->json(asset('storage/avatars/default.png'), 200);
         }
     }
 }

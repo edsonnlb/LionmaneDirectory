@@ -15,7 +15,7 @@ export class ContactsContainer implements OnInit {
 
   searchText = '';
   currentPage = 1;
-  pageSize = 10;
+  pageSize = 4;
   sortField = 'first_name';
   sortDir = 'ASC';
   pageCount = 1;

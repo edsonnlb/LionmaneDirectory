@@ -38,4 +38,8 @@ export class ContactService {
   getAvatar(id: number) {
     return this.http.get(`${environment.api_url}/contacts/avatar/${id}`);
   }
+
+  uploadAvatar(id: number, uploadData: FormData) {
+    return this.http.post(`${environment.api_url}/contacts/avatar/${id}`, uploadData);
+  }
 }
